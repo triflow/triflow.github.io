@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Taming Feed-forward Reconstruction Models as Latent Encoders for 3D Generative Models">
+  <meta name="keywords" content="NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taming Feed-forward Reconstruction Models as Latent Encoders for 3D Generative Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="#">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="#">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Taming Feed-forward Reconstruction Models as Latent Encoders for 3D
+              Generative Models</h1>
+            <h2 class="title is-4">Supplemental Material</h2>
+            <h2 class="title is-4">Anonymous CVPR Submission</h2>
+            <h2 class="title is-4">Paper ID 13706</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Text-to-3D ShapNet Chair</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/blue living room chair/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/fancy dining room chair with sculpted wooden legs/video.mp4"
+                      type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/green coffee table chair/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/metal bar chair/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/red office chair with wheels/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/white folding chair/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/chair/wooden park bench/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">blue living room chair</div>
+                <div style="width: 50%; margin-right: 10px;">fancy dining room chair with sculpted wooden legs</div>
+                <div style="width: 50%; margin-right: 10px;">green coffee table chair</div>
+                <div style="width: 50%; margin-right: 10px;">metal bar chair</div>
+                <div style="width: 50%; margin-right: 10px;">red office chair with wheels</div>
+                <div style="width: 50%; margin-right: 10px;">white folding chair</div>
+                <div style="width: 50%; margin-right: 10px;">wooden park bench</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Text-to-3D ShapNet Car</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/blue race car/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/green suv car/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/long black luxury limousine/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/purple car with modern design/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/red Ferrai car/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/white police car/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/car/yellow school bus/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">blue race car</div>
+                <div style="width: 50%; margin-right: 10px;">green suv car</div>
+                <div style="width: 50%; margin-right: 10px;">long black luxury limousine</div>
+                <div style="width: 50%; margin-right: 10px;">purple car with modern design</div>
+                <div style="width: 50%; margin-right: 10px;">red Ferrari car</div>
+                <div style="width: 50%; margin-right: 10px;">white police car</div>
+                <div style="width: 50%; margin-right: 10px;">yellow school bus</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Text-to-3D Objaverse</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/ancient clay pot/video (16).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/big green Christmas tree/video (44).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/blue ceramic bowl/video (46).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/blue jewelry necklace/video (25).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/classic red fire hydrant/video (7).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">ancient clay pot</div>
+                <div style="width: 50%; margin-right: 10px;">big green Christmas tree.</div>
+                <div style="width: 50%; margin-right: 10px;">blue ceramic bowl.</div>
+                <div style="width: 50%; margin-right: 10px;">blue jewelry necklace.</div>
+                <div style="width: 50%; margin-right: 10px;">classic red fire hydrant.</div>
+              </div>
+
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/classic wooden guitar/video (43).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/computer mornitor with flat screen/video (20).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/fresh green apple/video (22).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/glass jar/video (21).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/golden_yellow toilet/video (1).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/jacket with modern design/video (38).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">classic wooden guitar.</div>
+                <div style="width: 50%; margin-right: 10px;">computer monitor with flat screen.</div>
+                <div style="width: 50%; margin-right: 10px;">fresh green apple.</div>
+                <div style="width: 50%; margin-right: 10px;">glass jar.</div>
+                <div style="width: 50%; margin-right: 10px;">golden yellow toilet.</div>
+                <div style="width: 50%; margin-right: 10px;">jacket with modern design.</div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/large pumpkin/video (2).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/long computer keyboard/video (15).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/metal lampost with a lantern on the top/video (23).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/my little pony/video (24).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/old fashioned oil lamp/video (3).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/pair of black sunglasses/video (28).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">large pumpkin.</div>
+                <div style="width: 50%; margin-right: 10px;">long computer keyboard.</div>
+                <div style="width: 50%; margin-right: 10px;">metal lampost with a lantern on the top.</div>
+                <div style="width: 50%; margin-right: 10px;">my little pony.</div>
+                <div style="width: 50%; margin-right: 10px;">old fashioned oil lamp.</div>
+                <div style="width: 50%; margin-right: 10px;">pair of black sunglasses.</div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/pair of boxer shorts with red color/video (26).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/pair of headphone with modern design/video (27).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/pink cream doughnut/video (30).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/pizza with cheese and pepperoni topping/video (4).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/plastic water bottle/video (32).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/purple cap mushroom/video (11).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">pair of boxer shorts with red color.</div>
+                <div style="width: 50%; margin-right: 10px;">pair of headphone with modern design.</div>
+                <div style="width: 50%; margin-right: 10px;">pink cream doughnut.</div>
+                <div style="width: 50%; margin-right: 10px;">pizza with cheese and pepperoni topping.</div>
+                <div style="width: 50%; margin-right: 10px;">plastic water bottle.</div>
+                <div style="width: 50%; margin-right: 10px;">purple cap mushroom.</div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/red and black checkered picnic blanket/video (5).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/red and pink apple/video (33).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/red fire extinguisher with black handle/video (12).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/rustic wooden barrel/video (29).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/skateboard with green color/video (34).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/small blue recycling bin/video (6).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">red and black checkered picnic blanket.</div>
+                <div style="width: 50%; margin-right: 10px;">red and pink apple.</div>
+                <div style="width: 50%; margin-right: 10px;">red fire extinguisher with black handle.</div>
+                <div style="width: 50%; margin-right: 10px;">rustic wooden barrel.</div>
+                <div style="width: 50%; margin-right: 10px;">skateboard with green color.</div>
+                <div style="width: 50%; margin-right: 10px;">small blue recycling bin.</div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/small copper lantern/video (35).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/small yellow curved banana/video (37).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/spray paint can/video (39).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/tall wooden bookshelf/video (40).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/white and orange traffic cone/video (31).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/white die with black pips/video (41).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 50%; margin-right: 10px;">small copper lantern.</div>
+                <div style="width: 50%; margin-right: 10px;">small yellow curved banana.</div>
+                <div style="width: 50%; margin-right: 10px;">spray paint can.</div>
+                <div style="width: 50%; margin-right: 10px;">tall wooden bookshelf.</div>
+                <div style="width: 50%; margin-right: 10px;">white and orange traffic cone.</div>
+                <div style="width: 50%; margin-right: 10px;">white die with black pips.</div>
+              </div>
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 33%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/white snowman with black top hat/video (8).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 33%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/wooden desk/video (18).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 33%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/wooden dresser with drawers and cabinets/video (42).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 33%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/video/yellow and brown teddy bear/video (13).mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="center">
+                <div style="width: 33%; margin-right: 10px;">white snowman with black top hat.</div>
+                <div style="width: 33%; margin-right: 10px;">wooden desk.</div>
+                <div style="width: 33%; margin-right: 10px;">wooden dresser with drawers and cabinets.</div>
+                <div style="width: 33%; margin-right: 10px;">yellow and brown teddy bear.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--/ Text-to-3D. -->
+      </div>
+  </section>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Unconditional ShapNet Chair</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1003.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1005.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1008.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1013.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1018.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1026.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1027.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/chairs/chair_1033.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">Unconditional ShapNet Car</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_101.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_103.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_1000.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_1006.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_1018.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_1027.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+                <div style="width: 50%">
+                  <video width="100%" controls loop autoplay muted>
+                    <source src="static/uncond_videos/cars/car_1042.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Website template from <a href="https://nerfies.github.io/">Nerfies</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
