@@ -143,6 +143,58 @@
       <!-- Text-to-3D. -->
       <div class="columns is-centered">
         <div class="column is-full-width">
+          <!-- <h2 class="title is-3">Text-to-3D Generation with TriFlow</h2> -->
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 100%">
+                  <img src="static/teaser/teaser.png" alt="" width="5000" height="auto">
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="justify">
+                <div style="width: 100%; margin-right: 10px;">Figure 1. <b>Text-to-3D generation</b>. Our TriFlow model is trained on triplanes from a pretrained feed-forward reconstruction model and can generate a high-quality 3D model in a few seconds. Left column: samples of a model trained on Objaverse LVIS. Right: samples of models fine-tuned on ShapeNet chairs and cars.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <div class="columns is-centered">
+            <div class="column content">
+
+              <div style="display: flex; justify-content: center; align-items: center; margin: 0 auto;">
+                <div style="width: 100%">
+                  <img src="static/teaser/overview2.png" alt="" width="5000" height="auto">
+                </div>
+              </div>
+
+              <div style="display: flex; margin: 0 auto;" align="justify">
+                <div style="width: 100%; margin-right: 10px;">Figure 2. <b>Overview of our image-to-3D generation pipeline and architecture.</b> Our framework includes two main components: (1) a dataset preparation stage, where single-view or multi-view images are processed through a feed-forward image-to-triplane model to generate triplanes, and (2) TriFlow, a text-conditioned generative model trained on these triplanes using rectified-flow-based loss (L<sub>RF</sub> ) and perceptual loss (L<sub>lpips</sub> ) compared against the original images. On the right, we show our model architecture, a multi-stream transformer incorporating a combination of MM-DiT and DiT blocks. Note that ⊗ denotes concatenation between token streams.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Text-to-3D. -->
+      <div class="columns is-centered">
+        <div class="column is-full-width">
           <h2 class="title is-3">Text-to-3D ShapNet Chair</h2>
           <div class="columns is-centered">
             <div class="column content">
